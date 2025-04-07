@@ -225,6 +225,14 @@ PYBIND11_MODULE(nestpy, m)
 		.def("OptTrans", &DetectorExample_LUX_RUN03::OptTrans)
 		.def("SinglePEWaveForm", &DetectorExample_LUX_RUN03::SinglePEWaveForm);
 
+	//	Binding for example LZ_SR1
+	py::class_<DetectorExample_LZ_SR1, VDetector, std::unique_ptr<DetectorExample_LZ_SR1, py::nodelete>>(m, "LZ_SR1")
+		.def(py::init<>())
+		.def("Initialization", &DetectorExample_LZ_SR1::Initialization)
+		.def("FitTBA", &DetectorExample_LZ_SR1::FitTBA)
+		.def("OptTrans", &DetectorExample_LZ_SR1::OptTrans)
+		.def("SinglePEWaveForm", &DetectorExample_LZ_SR1::SinglePEWaveForm);
+
 	// Binding for the TestSpectra class
 	py::class_<TestSpectra, std::unique_ptr<TestSpectra, py::nodelete>>(m, "TestSpectra")
 		.def(py::init<>())
